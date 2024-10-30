@@ -1,8 +1,14 @@
 # atelier3_challenge
-## Custom Hash Function
+# Custom Hash Function
 
-A simple custom hash function implemented in Python that generates a unique hash for a given string input. This function is suitable for lightweight applications where high security is not required.
+This project contains a Python function that computes a unique hash for a given string using bitwise operations and arithmetic. It is a simple and efficient solution for basic hashing needs where security is not a primary concern.
 
-### Function Overview
+## How It Works
 
-The `custom_hash(data)` function takes a string and returns a 64-bit hexadecimal hash. It uses bitwise operations for simplicity and efficiency.
+The function `custom_hash(data)` follows these steps:
+
+1. **Initialize**: Sets `hash_value` to 5381, a prime number commonly used in hash functions to reduce collisions.
+2. **Iterate Through Characters**: For each character in the input string:
+   - Left-shifts `hash_value` by 5 bits (multiplies by 32), adds the current `hash_value`, and performs XOR with the ASCII code of the character. This combines each character into the hash uniquely.
+3. **Limit Hash Size**: Applies a bitwise AND with `0xFFFFFFFFFFFFFFFF` to ensure the hash remains within 64 bits.
+4. **Return**: Outputs the result as a hexadecimal string.
